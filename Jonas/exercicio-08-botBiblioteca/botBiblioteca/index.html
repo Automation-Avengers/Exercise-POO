@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Empréstimo</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #e9ecef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #80bdff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registrar Empréstimo</h1>
+        <form id="emprestimoForm">
+            <div class="form-group">
+                <label for="codigoLivro">Código do Livro:</label>
+                <input type="text" id="codigoLivro" name="codigoLivro" required placeholder="Digite o código">
+            </div>
+            <div class="form-group">
+                <label for="nomeCliente">Nome do Cliente:</label>
+                <input type="text" id="nomeCliente" name="nomeCliente" required placeholder="Digite seu nome">
+            </div>
+            <button type="submit">Registrar Empréstimo</button>
+        </form>
+        <div id="feedback" class="feedback"></div>
+    </div>
+    <script>
+        document.getElementById('emprestimoForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const codigoLivro = document.getElementById('codigoLivro').value;
+            const nomeCliente = document.getElementById('nomeCliente').value;
+
+            // Aqui você pode adicionar lógica para enviar os dados para o backend
+
+            document.getElementById('feedback').innerText = "Empréstimo registrado com sucesso!";
+            document.getElementById('emprestimoForm').reset(); // Limpa o formulário após o envio
+        });
+    </script>
+</body>
+</html>
