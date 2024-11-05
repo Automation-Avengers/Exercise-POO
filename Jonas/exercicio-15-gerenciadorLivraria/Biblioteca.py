@@ -71,3 +71,14 @@ class Biblioteca:
         with open(nome_arquivo, "rb") as arquivo:
             self.livros = pickle.load(arquivo)
         print(f"Dados carregados de {nome_arquivo}.")
+
+    def backup(self, formato):
+        if formato == "json":
+            self.salvar_json()
+        elif formato == "pickle":
+            self.salvar_pickle()
+        else:
+            print(f"Formato {formato} não suportado para backup.")
+
+    def filtrar_livros(self, ano=None, genero=None):
+        return list(filter(lambda livro: (ano is None or livro._ano == ano) and (genero is None or livro._genero == genero), self.livros))

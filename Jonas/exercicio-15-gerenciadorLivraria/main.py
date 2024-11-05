@@ -8,45 +8,44 @@ def main():
     biblioteca.adicionar_livro(Livro("Harry Potter e o Prisioneiro de Azkaban", "J. K. Rowling", 2004, "Fantasia"))
     biblioteca.adicionar_livro(Livro("Harry Potter e o Cálice de Fogo", "J. K. Rowling", 2005, "Fantasia"))
     biblioteca.adicionar_livro(Livro("Harry Potter e a Ordem da Fênix", "J. K. Rowling", 2007, "Fantasia"))
+    biblioteca.adicionar_livro(Livro("Jogos Vorazes", "Suzanne Collins", 2008, "Distopia"))
+    biblioteca.adicionar_livro(Livro("O Caçador de Pipas", "Khaled Hosseini", 2007, "Drama"))
 
     autor = "J. K. Rowling"    
     print(f"Livros da autora {autor}:\n")
-
     livros = biblioteca.listar_livros_por_autor(autor)
     for livro in livros:
-        print(livro.titulo)
+        print(f"Título: {livro.titulo}, Autor: {livro.autor}, Ano de Lançamento: {livro.ano}, Gênero: {livro.genero}")
     
-    print()
-    
+    print("\nExportando dados...\n")
     biblioteca.salvar_txt()
     biblioteca.carregar_txt()
-    
-    print()
-    
     biblioteca.salvar_json()
     biblioteca.carregar_json()
-    
-    print()
-    
     biblioteca.salvar_csv()
     biblioteca.carregar_csv()
-    
-    print()
-    
     biblioteca.salvar_pickle()
     biblioteca.carregar_pickle()
     
     print("\nLista de Títulos:")
-        
     titulos = biblioteca.listar_titulos()
-    for livro in livros:
-        print(livro.titulo)
+    for titulo in titulos:
+        print(titulo)
 
     genero = "Fantasia"
-    
     quantidade = biblioteca.contar_livros_por_genero(genero)
     print(f"\nNúmero de livros do gênero {genero}: {quantidade}")
-
     
+    print("\nFiltrando livros de 2005 e gênero Fantasia:")
+    livros_filtrados = biblioteca.filtrar_livros(ano=2007, genero=None)
+    for livro in livros_filtrados:
+        print(f"Título: {livro.titulo}, Autor: {livro.autor}, Ano de Lançamento: {livro.ano}, Gênero: {livro.genero}")
+
+    print("\nRealizando backup em formato JSON...")
+    biblioteca.backup(formato="json")
+
+    print("\nRealizando backup em formato Pickle...")
+    biblioteca.backup(formato="pickle")
+
 if __name__ == "__main__":
     main()
