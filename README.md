@@ -15,7 +15,7 @@ Cada exercício é desenvolvido em um script Python separado, focado em um ou ma
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/Exercise-POO.git
+   git clone https://github.com/Automation-Avengers/Exercise-POO.git
    ```
 2. Acesse o diretório do repositório:
    ```bash
